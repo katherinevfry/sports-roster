@@ -2,12 +2,18 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { addPlayer, updatePlayer } from '../helpers/data/TeamData';
 
-export default function PlayerForm({ formTitle, setPlayers, ...args }) {
+export default function PlayerForm({
+  formTitle,
+  setPlayers,
+  user,
+  ...playerObj
+}) {
   const [player, setPlayer] = useState({
-    name: args?.name || '',
-    position: args?.position || '',
-    imageUrl: args?.imageUrl || '',
-    firebaseKey: args?.firebaseKey || null
+    name: playerObj?.name || '',
+    position: playerObj?.position || '',
+    imageUrl: playerObj?.imageUrl || '',
+    firebaseKey: playerObj?.firebaseKey || null,
+    uid: playerObj?.uid || user.uid
   });
 
   const handleInputChange = (e) => {
@@ -20,9 +26,9 @@ export default function PlayerForm({ formTitle, setPlayers, ...args }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (player.firebaseKey) {
-      updatePlayer(player).then((playersArray) => setPlayers(playersArray));
+      updatePlayer(player, playerObj.uid).then((playersArray) => setPlayers(playersArray));
     } else {
-      addPlayer(player).then((playersArray) => setPlayers(playersArray));
+      addPlayer(player, user.uid).then((playersArray) => setPlayers(playersArray));
     }
   };
 
@@ -69,5 +75,6 @@ export default function PlayerForm({ formTitle, setPlayers, ...args }) {
 
 PlayerForm.propTypes = {
   formTitle: PropTypes.string,
-  setPlayers: PropTypes.func
+  setPlayers: PropTypes.func,
+  user: PropTypes.any
 };

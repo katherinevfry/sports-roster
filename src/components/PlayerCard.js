@@ -9,12 +9,12 @@ import PropTypes from 'prop-types';
 import { deletePlayer } from '../helpers/data/TeamData';
 import PlayerForm from './PlayerForm';
 
-export default function PlayerCard({ setPlayers, ...player }) {
+export default function PlayerCard({ setPlayers, user, ...player }) {
   const [editing, setEditing] = useState(false);
   const handleClick = (type) => {
     switch (type) {
       case 'delete':
-        deletePlayer(player.firebaseKey)
+        deletePlayer(player.firebaseKey, user.uid)
           .then((playerArray) => setPlayers(playerArray));
         break;
       case 'edit':
@@ -51,5 +51,6 @@ PlayerCard.propTypes = {
   imageUrl: PropTypes.string,
   name: PropTypes.string,
   position: PropTypes.string,
-  setPlayers: PropTypes.func
+  setPlayers: PropTypes.func,
+  user: PropTypes.any
 };

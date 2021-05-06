@@ -1,8 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import PlayerCard from '../components/PlayerCard';
+// import { getPlayers } from '../helpers/data/TeamData';
 
-export default function Team({ players, setPlayers }) {
+export default function Team({ players, setPlayers, user }) {
+  // useEffect(() => {
+  //   getPlayers(user?.uid).then((playerResp) => setPlayers(playerResp));
+  // }, []);
+
   return (
     <div>
       <h1>Roster</h1>
@@ -10,6 +15,7 @@ export default function Team({ players, setPlayers }) {
         {players.map((player) => (
           <PlayerCard
           key={player.firebaseKey}
+          user={user}
           setPlayers={setPlayers}
           {...player}
           />
@@ -21,5 +27,6 @@ export default function Team({ players, setPlayers }) {
 
 Team.propTypes = {
   players: PropTypes.array,
-  setPlayers: PropTypes.func
+  setPlayers: PropTypes.func,
+  user: PropTypes.any
 };
