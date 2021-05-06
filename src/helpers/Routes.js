@@ -17,7 +17,7 @@ export default function Routes({ players, setPlayers }) {
         <Route
         exact
         path='/add-players'
-        component={AddPlayers}
+        component={() => <AddPlayers setPlayers={setPlayers} />}
         />
         <Route
         exact

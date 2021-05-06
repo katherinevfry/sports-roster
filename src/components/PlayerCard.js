@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Card,
   CardTitle,
@@ -6,15 +6,42 @@ import {
   Button,
 } from 'reactstrap';
 import PropTypes from 'prop-types';
+import { deletePlayer } from '../helpers/data/TeamData';
+import PlayerForm from './PlayerForm';
 
 export default function PlayerCard({ setPlayers, ...player }) {
+  const [editing, setEditing] = useState(false);
+  const handleClick = (type) => {
+    switch (type) {
+      case 'delete':
+        deletePlayer(player.firebaseKey)
+          .then((playerArray) => setPlayers(playerArray));
+        break;
+      case 'edit':
+        setEditing((prevState) => !prevState);
+        break;
+      default:
+        console.warn('nothing to see here');
+    }
+  };
+
   return (
     <div>
       <Card id='card'>
         <img id='cardImg' src={player.imageUrl}></img>
         <CardTitle>Name: {player.name}</CardTitle>
         <CardText>Position: {player.position}</CardText>
-        <Button color='danger'>Delete Player</Button>
+        <Button color='danger' onClick={() => handleClick('delete')}>Delete Player</Button>
+        <Button color='info' onClick={() => handleClick('edit')}>
+          {editing ? 'Close Form' : 'Edit Player'}
+        </Button>
+        {
+            editing && <PlayerForm
+            formTitle='Edit Player'
+            setPlayers={setPlayers}
+            {...player}
+            />
+          }
       </Card>
     </div>
   );
