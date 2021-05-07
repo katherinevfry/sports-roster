@@ -2,5 +2,26 @@
 @import 'variables';
 
 body {
-  background-color: $favColor;
+  background-color: $dukeBlue;
+}
+
+#navBar {
+  background-color: $offWhite;
+}
+
+#cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+#card {
+  width: 20rem;
+  text-align: center;
+  margin: 10px;
+}
+
+#cardImg {
+  width:50px;
+  margin: auto;
 }

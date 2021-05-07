@@ -3,7 +3,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import NavBar from '../components/NavBar';
-// import { getPlayers } from '../helpers/data/TeamData';
+import { getPlayers } from '../helpers/data/TeamData';
 import Routes from '../helpers/Routes';
 import './App.scss';
 
@@ -20,16 +20,14 @@ function App() {
           uid: authed.uid,
           userName: authed.email.split('@')[0]
         };
+        getPlayers(authed.uid).then((playersArray) => setPlayers(playersArray));
         setUser(userInfoObj);
       } else if (user || user === null) {
         setUser(false);
+        setPlayers([]);
       }
     });
   }, []);
-
-  // useEffect(() => {
-  //   getPlayers(user?.uid).then((playerResp) => setPlayers(playerResp));
-  // }, []);
 
   return (
     <>

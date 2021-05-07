@@ -3,10 +3,15 @@ import PropTypes from 'prop-types';
 import PlayerCard from '../components/PlayerCard';
 // import { getPlayers } from '../helpers/data/TeamData';
 
-export default function Team({ players, setPlayers, user }) {
+export default function Team({ user, players, setPlayers }) {
+  // const [players, setPlayers] = useState([]);
+  // const getMyPlayers = () => {
+  //   getPlayers(user.uid).then((playerResp) => setPlayers(playerResp));
+  // };
   // useEffect(() => {
-  //   getPlayers(user?.uid).then((playerResp) => setPlayers(playerResp));
+  //   getPlayers(user.uid).then((playerResp) => setPlayers(playerResp));
   // }, []);
+  // getMyPlayers();
 
   return (
     <div>
