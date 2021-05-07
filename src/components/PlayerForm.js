@@ -46,7 +46,7 @@ export default function PlayerForm({
         <input
         name='name'
         type='text'
-        value={player.name.value}
+        value={player.name}
         onChange={handleInputChange}
         ></input>
         <br/>
@@ -55,7 +55,7 @@ export default function PlayerForm({
         <input
         name='position'
         type='text'
-        value={player.position.value}
+        value={player.position}
         onChange={handleInputChange}
         ></input>
         <br/>
@@ -63,7 +63,7 @@ export default function PlayerForm({
         <input
         name='imageUrl'
         type='text'
-        value={player.imageUrl.value}
+        value={player.imageUrl}
         onChange={handleInputChange}
         ></input>
         <br/>
