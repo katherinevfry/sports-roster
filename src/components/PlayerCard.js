@@ -31,10 +31,12 @@ export default function PlayerCard({ setPlayers, user, ...player }) {
         <img id='cardImg' src={player.imageUrl}></img>
         <CardTitle>Name: {player.name}</CardTitle>
         <CardText>Position: {player.position}</CardText>
-        <Button color='danger' onClick={() => handleClick('delete')}>Delete Player</Button>
-        <Button color='info' onClick={() => handleClick('edit')}>
-          {editing ? 'Close Form' : 'Edit Player'}
-        </Button>
+        <div id="buttonDiv">
+          <Button className="button" id="deleteButton" onClick={() => handleClick('delete')}>Delete Player</Button>
+          <Button className="button" id="editButton" onClick={() => handleClick('edit')}>
+            {editing ? 'Close Form' : 'Edit Player'}
+          </Button>
+        </div>
         {
             editing && <PlayerForm
             formTitle='Edit Player'

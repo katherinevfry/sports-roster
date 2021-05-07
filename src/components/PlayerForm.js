@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Button } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { addPlayer, updatePlayer } from '../helpers/data/TeamData';
 
@@ -66,7 +67,7 @@ export default function PlayerForm({
         onChange={handleInputChange}
         ></input>
         <br/>
-        <button type='submit'>Submit</button>
+        <Button id="submitButton" type='submit'>Submit</Button>
       </form>
     </div>
     </>

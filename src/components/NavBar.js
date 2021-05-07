@@ -31,7 +31,7 @@ const NavBar = ({ user }) => {
   return (
     <div>
       <Navbar id="navBar" light expand="md">
-        <NavbarBrand href="/">Yay Sports</NavbarBrand>
+        <NavbarBrand href="/">Cameron Stadium</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
@@ -41,8 +41,8 @@ const NavBar = ({ user }) => {
             && <NavItem>
               {
                 user
-                  ? <Button color='danger' onClick={signOutUser}>Sign Out</Button>
-                  : <Button color='info' onClick={signInUser}>Sign In</Button>
+                  ? <Button id="logOutBtn" onClick={signOutUser}>Sign Out</Button>
+                  : <Button id="logInBtn" onClick={signInUser}>Sign In</Button>
               }
             </NavItem>
             }
