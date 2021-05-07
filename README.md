@@ -1,5 +1,5 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/32cac4f3-e3f2-4b77-85ba-ffe90cc01648/deploy-status)](https://app.netlify.com/sites/kf-roster/deploys)
-
+![header image](https://i.imgur.com/sZuesPm.png)
 # Cameron Indoor Stadium
 
 ## Overview
@@ -28,4 +28,4 @@ Relive THE SHOT! Keep track of your favorite Duke Men's Basketball players in an
 https://kf-roster.netlify.app/
 
 ## Loom Walkthough
-coming soon
+https://www.loom.com/share/2b17273b1e284b09aabb0b631432505b
