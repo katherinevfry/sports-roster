@@ -2,5 +2,100 @@
 @import 'variables';
 
 body {
-  background-color: $favColor;
+  background-color: $dukeBlue;
+}
+
+#logoDiv {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+#logo {
+  width: 50%;
+}
+
+#navBar {
+  background-color: $offWhite;
+}
+
+#logInBtn {
+  background-color: $dukeBlue;
+}
+
+#logOutBtn {
+  background-color: $accent;
+}
+
+#cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#card {
+  width: 30rem;
+  text-align: center;
+  margin: 10px;
+  background-color: $offWhite;
+}
+
+#cardImg {
+  width: 100%;
+  height: 300px;
+  margin: auto;
+  object-fit: cover;
+}
+
+.buttonDiv {
+  display: flex;
+  flex-wrap: no-wrap;
+}
+
+.button {
+  width: 8rem;
+  margin: 10px;
+}
+
+#deleteButton {
+background-color: $accent;
+}
+
+#editButton {
+background-color: $dukeBlue;
+}
+
+#addPlayerForm {
+  background-color: $offWhite;
+  width: 30rem;
+  margin: auto;
+  margin-top: 50px;
+  // height: 20rem;
+  border-radius: 25px;
+}
+
+#submitButton {
+  background-color: $accent;
+  margin: 10px;
+}
+
+label {
+  margin-left: 10px;
+  margin-right: 5px;
+}
+
+input {
+  width: 29rem;
+  margin: 10px;
+}
+
+h1 {
+  text-align: center;
+  color: $offWhite;
+}
+
+h2 {
+  text-align: center;
+  color: $accent;
 }
