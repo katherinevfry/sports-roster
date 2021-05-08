@@ -1,43 +1,37 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import firebase from 'firebase/app';
-import 'firebase/auth';
+// import firebase from 'firebase/app';
+// import 'firebase/auth';
 import NavBar from '../components/NavBar';
-import { getPlayers } from '../helpers/data/TeamData';
 import Routes from '../helpers/Routes';
-import './App.scss';
+import '../styles/index.scss';
 
 function App() {
-  const [players, setPlayers] = useState([]);
-  const [user, setUser] = useState(null);
+  // const [user, setUser] = useState(null);
 
-  useEffect(() => {
-    firebase.auth().onAuthStateChanged((authed) => {
-      if (authed) {
-        const userInfoObj = {
-          fullName: authed.displayName,
-          profileImage: authed.photoURL,
-          uid: authed.uid,
-          userName: authed.email.split('@')[0]
-        };
-        getPlayers(authed.uid).then((playersArray) => setPlayers(playersArray));
-        setUser(userInfoObj);
-      } else if (user || user === null) {
-        setUser(false);
-        setPlayers([]);
-      }
-    });
-  }, []);
+  // useEffect(() => {
+  //   firebase.auth().onAuthStateChanged((authed) => {
+  //     if (authed) {
+  //       const userInfoObj = {
+  //         fullName: authed.displayName,
+  //         profileImage: authed.photoURL,
+  //         uid: authed.uid,
+  //         userName: authed.email.split('@')[0]
+  //       };
+  //       setUser(userInfoObj);
+  //     } else if (user || user === null) {
+  //       setUser(false);
+  //     }
+  //   });
+  // }, []);
+
+  // Pass the user if using authenticated routes
 
   return (
     <>
     <Router>
-      <NavBar user={user}/>
-      <Routes
-      players={players}
-      setPlayers={setPlayers}
-      user={user}
-      />
+      <NavBar />
+      <Routes />
     </Router>
     </>
   );

@@ -1,24 +1,11 @@
 import React from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import AddPlayers from '../views/AddPlayers';
+import { Route, Switch } from 'react-router-dom';
 import Home from '../views/Home';
-import Team from '../views/Team';
+import PageTwo from '../views/PageTwo';
 
-const PrivateRoute = ({ component: Component, user, ...rest }) => {
-  const routeChecker = (taco) => (user
-    ? (<Component {...taco} user={user} />)
-    : (<Redirect to={{ pathname: '/', state: { from: taco.location } }} />));
+// add Redirect to route if using private route
 
-  return <Route {...rest} render={(props) => routeChecker(props)} />;
-};
-
-PrivateRoute.propTypes = {
-  component: PropTypes.func,
-  user: PropTypes.any
-};
-
-export default function Routes({ user, players, setPlayers }) {
+export default function Routes() {
   return (
     <div>
       <Switch>
@@ -27,25 +14,12 @@ export default function Routes({ user, players, setPlayers }) {
         path='/'
         component={Home}
         />
-        <PrivateRoute
+        <Route
         exact
-        path='/add-players'
-        user={user}
-        component={() => <AddPlayers setPlayers={setPlayers} user={user} />}
-        />
-        <PrivateRoute
-        exact
-        path='/roster'
-        user={user}
-        component={() => <Team players={players} setPlayers={setPlayers} user={user}/>}
+        patch='/page-two'
+        component={PageTwo}
         />
       </Switch>
     </div>
   );
 }
-
-Routes.propTypes = {
-  players: PropTypes.array,
-  setPlayers: PropTypes.func,
-  user: PropTypes.any
-};
